@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>CoalBusinessBase</display-name>
+  <!-- 登录验证过滤器 -->
+  <filter>
+    <filter-name>loginFilter</filter-name>
+    <filter-class>com.coalsal.common.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+   <filter-name>loginFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 转码过滤器 -->
+  <filter>
+    <filter-name>charEncodFilter</filter-name>
+    <filter-class>com.coalsal.common.filter.CharEncodFilter</filter-class>
+    <init-param>
+      <param-name>encode</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+   <filter-name>charEncodFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
